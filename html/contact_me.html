@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <link href="../css/contact_me.css" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">My Portfolio</div>
+            <div class="menu">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Me</a>
+                <a href="programming_languages.html">Programming</a>
+                <a href="projects.html">Projects</a>
+                <a href="academics.html">Academics</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="social-links">
+            <a href="https://github.com/Andryko101" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/andy-makari-a39952233/" target="_blank">LinkedIn</a>
+            <a href="https://x.com/Werdna12345678" target="_blank">Twitter</a>
+        </div>
+        <section class="contact">
+            <h1>Contact Me</h1>
+            <p>Got a question, an idea, or just want to connect? Fill out the form below or reach me through my social links.</p>
+
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+            
+                <button type="submit">Send</button>
+            </form>
+            
+            <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+            <script>
+                (function(){
+                    emailjs.init("ViyLxYIgkmICbiNGs");
+                })();
+            
+                document.getElementById("contact-form").addEventListener("submit", function(event) {
+                    event.preventDefault(); 
+            
+                    emailjs.sendForm("service_pazwn4o", "template_ii3jcql", this)
+                    .then(function(response) {
+                        alert("Message sent successfully!");
+                    }, function(error) {
+                        alert("Failed to send message. Try again.");
+                    });
+                });
+            </script>
+        </section>
+    </main>
+
+</body>
+</html>
